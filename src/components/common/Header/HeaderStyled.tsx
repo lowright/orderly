@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
 	height: 80px;
 	max-height: 80px;
 	background-color: #a8acb3;
-	padding: 0px 50px;
+	padding: 16px 50px;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 `;
 
-export { HeaderWrapper };
+export const ComponentWrapper = styled.div`
+	display: flex;
+	align-items: center;
+`;

@@ -9,5 +9,6 @@ export type TLogo = {
 export interface IConnectWaller {
 	connected?: boolean;
 	logo: TLogo;
-	wallet: Pick<IWallet, 'total_balance' | 'wallet_id' | 'wallet_name' | 'wallet_currency'>;
+	wallet: Pick<IWallet, 'wallet_address' | 'wallet_name' | 'wallet_currency' | 'total_balance'>;
+	onClick?: () => void;
 }
