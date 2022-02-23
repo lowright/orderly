@@ -32,7 +32,7 @@ const WalletInfo: FC<Pick<IConnectWaller, 'wallet'>> = ({ wallet }) => {
 
 export const ConnectWallet: FC<IConnectWaller> = ({ logo, wallet, connected }) => {
 	const connectWallet = () => {
-		alert(1);
+		// alert(1);
 	};
 
 	return (
