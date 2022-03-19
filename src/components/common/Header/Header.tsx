@@ -1,20 +1,24 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
-// Import Assets
+// Import assets
 import LogoImg from 'assets/images/logo-header.png';
 
-// Import Types
+// Import types
 import { IHeader } from './types';
 
-// Import Styled Components
+// Import styled components
 import { HeaderWrapper, ComponentWrapper } from './HeaderStyled';
 
-// Import Component
+// Import component
 import { Logotype } from '../Logo';
 import { ConnectWallet } from '../ConnectWallet';
 import { Network } from './Network';
 
-export const Header: FC<IHeader> = () => {
+export const Header: FC<IHeader> = ({ contractInfo }) => {
+	useEffect(() => {
+		console.log({ contractInfo });
+	}, []);
+
 	return (
 		<HeaderWrapper>
 			<ComponentWrapper>
@@ -23,8 +27,7 @@ export const Header: FC<IHeader> = () => {
 			<ComponentWrapper>
 				<Network network="BTC" />
 				<ConnectWallet
-					// connected={false}
-					connected
+					connected={contractInfo.currentUser && true}
 					logo={{
 						src: '',
 						alt: '',
@@ -34,6 +37,7 @@ export const Header: FC<IHeader> = () => {
 						wallet_address: '313adwd3321',
 						wallet_name: 'near.name',
 						wallet_currency: 'usdt',
+						walletConnection: contractInfo.walletConnection,
 					}}
 				/>
 			</ComponentWrapper>

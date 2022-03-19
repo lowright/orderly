@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-// Import Types
+// Import types
 import { ILogo } from './types';
 
-// Import Styled Components
+// Import styled components
 import { Logo } from './LogoStyled';
 
 export const Logotype: FC<ILogo> = ({ url, alt }) => {

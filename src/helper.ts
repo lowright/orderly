@@ -1,4 +1,4 @@
-const formatAddress = ({ address }: { address: string }) => {
+export const formatAddress = ({ address }: { address: string }) => {
 	/* eslint-disable fp/no-let */
 	let modified: string = '';
 
@@ -9,4 +9,9 @@ const formatAddress = ({ address }: { address: string }) => {
 	return modified;
 };
 
-export { formatAddress };
+export const FilterInputForNumber = ({ value }: { value: string }) => {
+	const filterRule = /\D/g;
+	return value.replace(filterRule, '');
+};
+
+export const prettierBalance = ({ str }: { str: string }) => `${Math.trunc(+str * 11.25 * 100) / 100}`;

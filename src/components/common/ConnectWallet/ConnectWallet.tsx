@@ -24,15 +24,20 @@ const WalletInfo: FC<Pick<IConnectWaller, 'wallet'>> = ({ wallet }) => {
 
 	return (
 		<ConnectWrapperInfo>
-			<ConnectWrapperInfoLabel isCurrensy={false}>{formatAddress({ address: wallet_address })}</ConnectWrapperInfoLabel>
+			<ConnectWrapperInfoLabel isCurrensy={false}>
+				{formatAddress({ address: wallet_address || '' })}
+			</ConnectWrapperInfoLabel>
 			<ConnectWrapperInfoLabel isCurrensy>{`${total_balance} ${wallet_currency}`}</ConnectWrapperInfoLabel>
 		</ConnectWrapperInfo>
 	);
 };
 
 export const ConnectWallet: FC<IConnectWaller> = ({ logo, wallet, connected }) => {
-	const connectWallet = () => {
-		// alert(1);
+	const connectWallet = async () => {
+		wallet.walletConnection?.requestSignIn({
+			contractId: wallet.walletConnection.getAccountId(),
+			methodNames: ['getMessage'],
+		});
 	};
 
 	return (

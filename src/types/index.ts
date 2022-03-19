@@ -1,3 +1,3 @@
 import { IWallet } from './types';
 
-export { IWallet };
+export type { IWallet };
